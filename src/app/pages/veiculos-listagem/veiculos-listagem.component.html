@@ -1,0 +1,36 @@
+<div>
+  <div class="optionsListMain">
+      <h1>Listagem de veículos</h1>
+      <div class="optionsListChildren">
+          <div class="form-group">
+              <label for="exampleFormControlSelect1">Filtrar por risco</label>
+              <select class="form-control" id="exampleFormControlSelect1" (change)="filterVeiculos($event.target.value)">
+                <option value=""></option>
+                <option value="baixo">Baixo</option>
+                <option value="medio">Médio</option>
+                <option value="alto">Alto</option>
+              </select>
+          </div>
+          <button type="button" class="btn btn-outline-primary" (click)="listVeiculos()">Limpar</button>
+      </div>
+  </div>
+</div>
+<hr />  
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Marca</th>
+        <th scope="col">Modelo</th>
+        <th scope="col">Valor</th>
+        <th scope="col">Ano</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let v of veiculos">
+        <th scope="row">{{v.marca}}</th>
+        <td>{{v.modelo}}</td>
+        <td>{{v.valor}}</td>
+        <td>{{v.ano}}</td>
+      </tr>
+    </tbody>
+  </table>
